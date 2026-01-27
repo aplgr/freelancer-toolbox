@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description"
+          content="Compare retainer packages by MRR/ARR, effective rate, reserved capacity, overage rules, and contract terms. Export configurations as JSON." />
+    <meta name="keywords"
+          content="freelancer calculator, pricing calculator, retainer calculator, replacement cost, consulting, rate, MRR, ARR, GitHub Pages, static tool" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical"
+          href="https://aplgr.github.io/freelancer-toolbox/tools/retainer-tier/" />
+    <meta name="theme-color" content="#f6f6f8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Freelancer Business Toolbox" />
+    <meta property="og:title" content="Retainer Tier Evaluator · Freelancer Business Toolbox" />
+    <meta property="og:description"
+          content="Compare retainer packages by MRR/ARR, effective rate, reserved capacity, overage rules, and contract terms. Export configurations as JSON." />
+    <meta property="og:url"
+          content="https://aplgr.github.io/freelancer-toolbox/tools/retainer-tier/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Retainer Tier Evaluator · Freelancer Business Toolbox" />
+    <meta name="twitter:description"
+          content="Compare retainer packages by MRR/ARR, effective rate, reserved capacity, overage rules, and contract terms. Export configurations as JSON." />
+    <script
+            type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Retainer Tier Evaluator","applicationCategory":"BusinessApplication","operatingSystem":"Any","description":"Compare retainer packages by MRR/ARR, effective rate, reserved capacity, overage rules, and contract terms. Export configurations as JSON.","url":"https://aplgr.github.io/freelancer-toolbox/tools/retainer-tier/","isAccessibleForFree":true,"license":"https://github.com/aplgr/freelancer-toolbox/blob/main/LICENSE","publisher":{"@type":"Organization","name":"Freelancer Business Toolbox"}}</script>
+    <meta name="color-scheme" content="light dark" />
+    <title>Retainer Tier Evaluator · Freelancer Business Toolbox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Roboto:wght@300;400;500;700&display=swap"
+          rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="../../assets/main.css" />
+    <link rel="stylesheet" href="../../assets/pill.css" />
+    <link rel="stylesheet" href="../../assets/site.css" />
+    <link rel="stylesheet" type="text/css" href="assets/main.css" />
+</head>
+
+<body>
+    <div class="wrap" x-data="RetainerTierApp()" x-init="init()">
+        <header class="topbar">
+            <div class="brand">
+                <div class="logo" aria-hidden="true"></div>
+                <div>
+                    <h1>Retainer Tier Evaluator</h1>
+                    <p>Compare retainers by revenue, effective rate, capacity reservation, and terms.</p>
+                </div>
+            </div>
+            <div class="pill" aria-label="Tool links and theme switch">
+                <a class="pill-link" href="../../" rel="noopener" title="Back to landing page"
+                   aria-label="Landing page">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         viewBox="0 0 16 16"
+                         aria-hidden="true">
+                        <path
+                              d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+                    </svg>
+                </a>
+                <a class="pill-link" href="https://github.com/aplgr/freelancer-toolbox" rel="noopener"
+                   target="_blank"
+                   title="GitHub repository" aria-label="GitHub repository">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         viewBox="0 0 16 16"
+                         aria-hidden="true">
+                        <path
+                              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                    </svg>
+                </a>
+                <span class="theme-tag" id="themeTag">Light</span>
+                <label class="switch" id="themeSwitchLabel" title="Switch to dark mode">
+                    <input type="checkbox" id="themeSwitch" />
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </header>
+        <div class="grid">
+            <!-- LEFT: CONFIG -->
+            <div class="card">
+                <div class="head">
+                    <h2>Configuration</h2>
+                    <span class="badge" x-text="unitTypeLabel() + ' · per ' + periodLabel()"></span>
+                </div>
+                <div class="content">
+                    <div class="section-title">Calculation mode</div>
+                    <div class="form-grid">
+                        <label>
+                            <span class="label-row"> Unit <span class="tip"
+                                      title="Switch between hourly (€/h) and daily (€/day) calculations.">i</span>
+                            </span>
+                            <select x-model="unitType">
+                                <option value="hours">Hours</option>
+                                <option value="days">Days</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span class="label-row"> Period <span class="tip"
+                                      title="Choose whether tiers are defined per week or per month. Monthly/yearly numbers are always shown on the right.">i</span>
+                            </span>
+                            <select x-model="period">
+                                <option value="month">Per month</option>
+                                <option value="week">Per week</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span class="label-row"> Base rate <span x-text="rateSuffix()"></span>
+                                <span class="tip"
+                                      title="This is your normal rate. Each tier applies a discount for included units. Overage is calculated as base rate × overage multiplier.">i</span>
+                            </span>
+                            <input type="number" min="0" step="1" x-model.number="baseRate" />
+                        </label>
+                        <label x-show="unitType === 'hours'">
+                            <span class="label-row"> Full-time baseline (hours/month) <span class="tip"
+                                      title="Used only to compute the 'capacity reserved' percentage. Typical: 160. Adjust if you use a different baseline.">i</span>
+                            </span>
+                            <input type="number" min="1" step="1" x-model.number="fullTimeHoursPerMonth" />
+                        </label>
+                        <label x-show="unitType === 'days'">
+                            <span class="label-row"> Full-time baseline (days/month) <span class="tip"
+                                      title="Used only to compute the 'capacity reserved' percentage. Typical: 20. Adjust if you use a different baseline.">i</span>
+                            </span>
+                            <input type="number" min="1" step="1" x-model.number="fullTimeDaysPerMonth" />
+                        </label>
+                    </div>
+                    <div class="sep"></div>
+                    <div class="section-title">Share / restore</div>
+                    <div class="row">
+                        <button class="btn" @click="downloadConfig()">Export config (JSON)</button>
+                        <label class="btn" style="display:inline-flex; align-items:center; gap:10px; cursor:pointer;">
+                            Import JSON <input type="file" accept="application/json" style="display:none"
+                                   @change="uploadConfig($event)" />
+                        </label>
+                        <button class="btn" @click="resetExample()">Reset example</button>
+                    </div>
+                    <div class="hint" x-show="error" x-text="error"
+                         style="color: rgba(232,88,88,.95); margin-top: 10px;"></div>
+                    <div class="hint" x-show="ok" x-text="ok" style="color: rgba(80,200,120,.95); margin-top: 10px;">
+                    </div>
+                    <div class="sep"></div>
+                    <div class="section-title">Contract preference (for scoring)</div>
+                    <div class="row">
+                        <label style="flex:1">
+                            <span class="label-row"> Preference <span class="tip"
+                                      title="Stability favors longer term + longer notice. Flexibility favors shorter term + shorter notice.">i</span>
+                            </span>
+                            <select x-model="preference">
+                                <option value="stability">Stability (longer commitments are better)</option>
+                                <option value="flexibility">Flexibility (shorter commitments are better)</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="hint"> Scoring is intentionally simple and conservative: it maps term months (cap 12)
+                        and notice weeks (cap 12) into 0..100. Use it as a negotiation compass, not as an absolute
+                        truth. </div>
+                    <div class="sep"></div>
+                    <div class="section-title">Tiers</div>
+                    <div class="row" style="justify-content:space-between">
+                        <span class="badge" x-text="tiers.length + ' tiers'"></span>
+                        <button class="btn btn-accent" @click="addTier()">+ Add tier</button>
+                    </div>
+                    <div class="tier-list">
+                        <template x-for="(t, i) in tiers" :key="t.id">
+                            <div class="tier-item">
+                                <div class="tier-head">
+                                    <strong x-text="'Tier ' + (i+1)"></strong>
+                                    <button class="btn btn-danger" @click="removeTier(i)" :disabled="tiers.length <= 1"
+                                            title="Remove tier"> Remove </button>
+                                </div>
+                                <div class="tier-grid">
+                                    <label>
+                                        <span class="label-row"> Name <span class="tip"
+                                                  title="Displayed on the right side when comparing tiers.">i</span>
+                                        </span>
+                                        <input type="text" x-model="t.name" placeholder="e.g. Core" />
+                                    </label>
+                                    <label>
+                                        <span class="label-row"> Incl. <span x-text="unitTypeLabelPlural()"></span> per
+                                            <span x-text="periodLabel()"></span>
+                                            <span class="tip"
+                                                  title="This is what the client buys as a committed block. Monthly/yearly totals are calculated from this.">i</span>
+                                        </span>
+                                        <input type="number" min="0" step="1" x-model.number="t.units" />
+                                    </label>
+                                    <label>
+                                        <span class="label-row"> Discount (%) <span class="tip"
+                                                  title="Discount applied to included units vs your base rate. Example: 15 means the client pays 85% of base rate for included units.">i</span>
+                                        </span>
+                                        <input type="number" min="0" max="80" step="1" x-model.number="t.discount" />
+                                    </label>
+                                    <label>
+                                        <span class="label-row"> Overage multiplier <span class="tip"
+                                                  title="Overage rate = base rate × multiplier. Often slightly higher than base rate (e.g., 1.25).">i</span>
+                                        </span>
+                                        <input type="number" min="1" max="3" step="0.05"
+                                               x-model.number="t.overageMultiplier" />
+                                    </label>
+                                    <label>
+                                        <span class="label-row"> Term length (months) <span class="tip"
+                                                  title="Minimum commitment. Used for scoring and for annualized planning.">i</span>
+                                        </span>
+                                        <input type="number" min="0" step="1" x-model.number="t.termMonths" />
+                                    </label>
+                                    <label>
+                                        <span class="label-row"> Notice period (weeks) <span class="tip"
+                                                  title="Termination notice. Longer notice reduces risk for the freelancer but can be a negotiation lever.">i</span>
+                                        </span>
+                                        <input type="number" min="0" step="1" x-model.number="t.noticeWeeks" />
+                                    </label>
+                                </div>
+                                <div class="hint"> Tip: If a client pushes for a shorter term, compensate with a
+                                    slightly higher price or a longer notice. If they want a heavier discount, push for
+                                    longer commitment. </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+            <!-- RIGHT: RESULTS -->
+            <div class="card">
+                <div class="head">
+                    <h2>Results</h2>
+                    <span class="badge" x-text="preferenceLabel()"></span>
+                </div>
+                <div class="content">
+                    <div class="result-hero">
+                        <div class="hero-title">
+                            <h3>Tier comparison</h3>
+                            <p class="sub" x-show="period === 'week'"> Weekly tiers are converted using 52 weeks/year
+                                and 52/12 ≈ 4.33 weeks/month. </p>
+                            <p class="sub" x-show="period === 'month'"> Monthly tiers are shown directly (MRR/ARR). </p>
+                        </div>
+                        <div class="hint"> “Effective rate” reflects the discount for the included block. “Overage rate”
+                            is what extra work costs beyond the block. Capacity reserved is a planning indicator only
+                            (based on your baseline settings). </div>
+                    </div>
+                    <div class="sep"></div>
+                    <div class="tier-cards">
+                        <template x-for="(t, i) in tiers" :key="'card-' + t.id">
+                            <div class="tier-card" :class="bestTierIndex() === i ? 'best' : ''">
+                                <div class="tc-head">
+                                    <div class="name">
+                                        <h4 x-text="t.name || ('Tier ' + (i+1))"></h4>
+                                        <span class="mini" x-text="unitSummary(t)"></span>
+                                    </div>
+                                    <span class="badge"
+                                          x-text="bestTierIndex() === i ? 'Best match' : 'Score ' + score(t) + '/100'"></span>
+                                </div>
+                                <div class="tc-body">
+                                    <div class="kpi-row">
+                                        <div class="kpi big">
+                                            <div class="k">Monthly price (MRR)</div>
+                                            <div class="v" x-text="fmtEUR(pricePerMonth(t))"></div>
+                                            <div class="s" x-text="'Yearly: ' + fmtEUR(pricePerYear(t))"></div>
+                                        </div>
+                                        <div class="kpi">
+                                            <div class="k" x-text="'Price per ' + periodLabel()"></div>
+                                            <div class="v" x-text="fmtEUR(pricePerPeriod(t))"></div>
+                                            <div class="s" x-text="'Discount: ' + clampPct(t.discount) + '%'"></div>
+                                        </div>
+                                        <div class="kpi">
+                                            <div class="k">Effective rate (included)</div>
+                                            <div class="v" x-text="fmtEUR(effectiveRate(t)) + ' ' + rateSuffix()"></div>
+                                            <div class="s"
+                                                 x-text="'Overage: ' + fmtEUR(overageRate(t)) + ' ' + rateSuffix()">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="kpi-row">
+                                        <div class="kpi">
+                                            <div class="k">Capacity reserved</div>
+                                            <div class="v" x-text="capacityPct(t).toFixed(1) + '%'"></div>
+                                            <div class="s"
+                                                 x-text="'≈ ' + unitsPerMonth(t).toFixed(1) + ' ' + unitTypeLabelPlural() + '/month'">
+                                            </div>
+                                        </div>
+                                        <div class="kpi">
+                                            <div class="k">Contract terms</div>
+                                            <div class="v" x-text="termText(t)"></div>
+                                            <div class="s" x-text="noticeText(t)"></div>
+                                        </div>
+                                        <div class="kpi">
+                                            <div class="k">Preference score</div>
+                                            <div class="v" x-text="score(t) + '/100'"></div>
+                                            <div class="s" x-text="scoreExplanation(t)"></div>
+                                            <div class="bar" aria-label="score bar">
+                                                <div :style="'width:' + score(t) + '%;'"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hint"> Negotiation levers: discount ↔ commitment, notice ↔ price,
+                                        overage multiplier ↔ client demand volatility. </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <span>© <span id="year"></span> · Built as a static showcase</span>
+            <span class="dot">·</span>
+            <a class="footlink" href="https://github.com/aplgr/freelancer-toolbox" rel="noopener"
+               target="_blank">GitHub repository</a>
+        </footer>
+    </div>
+    <script src="assets/main.js"></script>
+    <script src="../../assets/pill.js"></script>
+</body>
+
+</html>

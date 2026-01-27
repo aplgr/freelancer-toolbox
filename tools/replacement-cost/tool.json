@@ -1,0 +1,7 @@
+{
+  "slug": "replacement-cost",
+  "title": "Replacement Cost Calculator",
+  "description": "Estimate the real cost of replacing a contributor: ramp-up productivity loss, mentoring overhead, and delivery risk.",
+  "tags": ["Negotiation", "Ramp-up", "Cost of delay"],
+  "order": 3
+}

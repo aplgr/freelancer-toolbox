@@ -1,0 +1,47 @@
+name: Generate tools.json
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate tools.json
+        run: python3 scripts/generate-tools-json.py
+
+      - name: Commit tools.json (push to main only)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          if [[ -n "$(git status --porcelain tools.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add tools.json
+            git commit -m "chore: regenerate tools.json" || true
+            git push
+          else
+            echo "tools.json is up to date."
+          fi
+
+      - name: Verify tools.json is up to date (PR only)
+        if: github.event_name == 'pull_request'
+        run: |
+          if [[ -n "$(git status --porcelain tools.json)" ]]; then
+            echo "tools.json is out of date. Run: make tools-json" >&2
+            git --no-pager diff -- tools.json
+            exit 1
+          fi

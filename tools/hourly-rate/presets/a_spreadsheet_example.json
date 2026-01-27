@@ -1,0 +1,213 @@
+{
+  "name": "Spreadsheet example (baseline)",
+  "tax": {
+  "modelId": "de_income_tax_2025",
+    "params": {}
+  },
+  "work": {
+    "workDaysPerYear": 250,
+    "holidays": 11,
+    "hoursPerDay": 8
+  },
+  "unproductiveDays": [
+    {
+      "category": "Marketing",
+      "label": "Marketing",
+      "days": 24
+    },
+    {
+      "category": "Administration",
+      "label": "Administration (bookkeeping, paperwork, purchasing)",
+      "days": 12
+    },
+    {
+      "category": "Sick leave",
+      "label": "Sick leave",
+      "days": 10
+    },
+    {
+      "category": "Vacation",
+      "label": "Vacation",
+      "days": 30
+    },
+    {
+      "category": "Pipeline gaps",
+      "label": "Pipeline gaps",
+      "days": 30
+    },
+    {
+      "category": "Other",
+      "label": "Other",
+      "days": 5
+    }
+  ],
+  "privateExpenses": [
+    {
+      "category": "Housing",
+      "label": "Rent",
+      "monthly": 450
+    },
+    {
+      "category": "Housing",
+      "label": "Utilities",
+      "monthly": 120
+    },
+    {
+      "category": "Car",
+      "label": "Fuel (private share)",
+      "monthly": 60
+    },
+    {
+      "category": "Car",
+      "label": "Car insurance (private share)",
+      "monthly": 20
+    },
+    {
+      "category": "Car",
+      "label": "Repairs (private share)",
+      "monthly": 40
+    },
+    {
+      "category": "Car",
+      "label": "Cleaning & care (private share)",
+      "monthly": 5
+    },
+    {
+      "category": "Living",
+      "label": "Groceries",
+      "monthly": 200
+    },
+    {
+      "category": "Living",
+      "label": "Leisure",
+      "monthly": 100
+    },
+    {
+      "category": "Living",
+      "label": "Household",
+      "monthly": 20
+    },
+    {
+      "category": "Living",
+      "label": "Clothing",
+      "monthly": 100
+    },
+    {
+      "category": "Insurance",
+      "label": "Liability insurance",
+      "monthly": 10
+    },
+    {
+      "category": "Insurance",
+      "label": "Health insurance",
+      "monthly": 300
+    },
+    {
+      "category": "Insurance",
+      "label": "Disability insurance",
+      "monthly": 80
+    },
+    {
+      "category": "Insurance",
+      "label": "Medical reserve",
+      "monthly": 200
+    },
+    {
+      "category": "Retirement",
+      "label": "Pension insurance",
+      "monthly": 500
+    },
+    {
+      "category": "Retirement",
+      "label": "Personal savings",
+      "monthly": 200
+    },
+    {
+      "category": "Communication",
+      "label": "TV / radio fee",
+      "monthly": 40
+    },
+    {
+      "category": "Communication",
+      "label": "Internet & phone",
+      "monthly": 30
+    },
+    {
+      "category": "Misc",
+      "label": "Gifts",
+      "monthly": 10
+    },
+    {
+      "category": "Misc",
+      "label": "Sports",
+      "monthly": 60
+    },
+    {
+      "category": "Misc",
+      "label": "Travel",
+      "monthly": 100
+    }
+  ],
+  "businessExpenses": [
+    {
+      "category": "Office",
+      "label": "Rent",
+      "monthly": 160
+    },
+    {
+      "category": "Office",
+      "label": "Electricity",
+      "monthly": 15
+    },
+    {
+      "category": "Car",
+      "label": "Fuel",
+      "monthly": 200
+    },
+    {
+      "category": "Car",
+      "label": "Car insurance",
+      "monthly": 30
+    },
+    {
+      "category": "Car",
+      "label": "Repairs",
+      "monthly": 40
+    },
+    {
+      "category": "Car",
+      "label": "Cleaning & care",
+      "monthly": 10
+    },
+    {
+      "category": "Marketing",
+      "label": "Website",
+      "monthly": 10
+    },
+    {
+      "category": "Marketing",
+      "label": "Freelancer databases",
+      "monthly": 20
+    },
+    {
+      "category": "Operations",
+      "label": "Telecom",
+      "monthly": 30
+    },
+    {
+      "category": "Operations",
+      "label": "Internet",
+      "monthly": 30
+    },
+    {
+      "category": "Operations",
+      "label": "Office supplies",
+      "monthly": 30
+    },
+    {
+      "category": "Training",
+      "label": "Training",
+      "monthly": 50
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "label": "Senior Perl (no platform background)",
+    "file": "presets/a_senior_perl_no_platform.json"
+  },
+  {
+    "label": "Senior Perl + Legacy Ops (example)",
+    "file": "presets/b_senior_perl_legacy_ops.json"
+  },
+  {
+    "label": "Niche platform veteran (unicorn)",
+    "file": "presets/c_niche_platform_unicorn.json"
+  },
+  {
+    "label": "Junior Perl Dev (learning, no legacy background)",
+    "file": "presets/junior_perl_learning_no_legacy.json"
+  },
+  {
+    "label": "Mid-level Perl Dev (no legacy background)",
+    "file": "presets/mid_perl_no_legacy.json"
+  },
+  {
+    "label": "Junior Dev (no Perl yet, willing to learn)",
+    "file": "presets/junior_dev_no_perl_willing_to_learn.json"
+  },
+  {
+    "label": "Senior Java Dev (legacy Oracle monolith)",
+    "file": "presets/senior_java_legacy_oracle.json"
+  },
+  {
+    "label": "DevOps Engineer (cloud skills, legacy on-prem)",
+    "file": "presets/devops_engineer_legacy_onprem.json"
+  },
+  {
+    "label": "Warehouse Ops Supervisor (ramp-up example, non-IT)",
+    "file": "presets/warehouse_ops_supervisor.json"
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "slug": "retainer-tier",
+  "title": "Retainer Tier Evaluator",
+  "description": "Compare retainer packages and discounts, define overage rules, and sanity-check risk and stability trade-offs.",
+  "tags": ["Retainer", "Overage", "Terms"],
+  "order": 2
+}

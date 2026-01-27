@@ -1,0 +1,33 @@
+{
+  "name": "Minimal template",
+  "tax": {
+  "modelId": "de_income_tax_2025",
+    "params": {}
+  },
+  "work": {
+    "workDaysPerYear": 250,
+    "holidays": 0,
+    "hoursPerDay": 8
+  },
+  "unproductiveDays": [
+    {
+      "category": "Vacation",
+      "label": "Vacation",
+      "days": 0
+    }
+  ],
+  "privateExpenses": [
+    {
+      "category": "Housing",
+      "label": "Rent",
+      "monthly": 0
+    }
+  ],
+  "businessExpenses": [
+    {
+      "category": "Tools & subscriptions",
+      "label": "Tools / subscriptions",
+      "monthly": 0
+    }
+  ]
+}

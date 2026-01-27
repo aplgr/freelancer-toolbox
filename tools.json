@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-01-27T16:44:47Z",
+  "tools": [
+    {
+      "slug": "hourly-rate",
+      "title": "Hourly Rate Calculator",
+      "description": "Turn annual costs and capacity into a target hourly rate. Includes presets plus import/export and a configurable tax model.",
+      "tags": [
+        "Pricing",
+        "Tax model",
+        "Presets"
+      ],
+      "href": "tools/hourly-rate/",
+      "order": 1
+    },
+    {
+      "slug": "retainer-tier",
+      "title": "Retainer Tier Evaluator",
+      "description": "Compare retainer packages and discounts, define overage rules, and sanity-check risk and stability trade-offs.",
+      "tags": [
+        "Retainer",
+        "Overage",
+        "Terms"
+      ],
+      "href": "tools/retainer-tier/",
+      "order": 2
+    },
+    {
+      "slug": "replacement-cost",
+      "title": "Replacement Cost Calculator",
+      "description": "Estimate the real cost of replacing a contributor: ramp-up productivity loss, mentoring overhead, and delivery risk.",
+      "tags": [
+        "Negotiation",
+        "Ramp-up",
+        "Cost of delay"
+      ],
+      "href": "tools/replacement-cost/",
+      "order": 3
+    }
+  ]
+}

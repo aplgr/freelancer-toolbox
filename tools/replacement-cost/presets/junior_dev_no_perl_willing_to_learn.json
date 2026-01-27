@@ -1,0 +1,59 @@
+{
+  "monthsCount": 9,
+  "hoursPerMonth": 160,
+  "externalRateEur": 35,
+  "mentorRateEur": 70,
+  "procurementHours": 20,
+  "months": [
+    {
+      "productivity": 0.15,
+      "mentoringHours": 22,
+      "note": "language + codebase onboarding"
+    },
+    {
+      "productivity": 0.25,
+      "mentoringHours": 20,
+      "note": ""
+    },
+    {
+      "productivity": 0.35,
+      "mentoringHours": 18,
+      "note": "first safe changes"
+    },
+    {
+      "productivity": 0.45,
+      "mentoringHours": 14,
+      "note": ""
+    },
+    {
+      "productivity": 0.55,
+      "mentoringHours": 10,
+      "note": ""
+    },
+    {
+      "productivity": 0.62,
+      "mentoringHours": 8,
+      "note": "learning accelerates"
+    },
+    {
+      "productivity": 0.7,
+      "mentoringHours": 6,
+      "note": ""
+    },
+    {
+      "productivity": 0.76,
+      "mentoringHours": 5,
+      "note": ""
+    },
+    {
+      "productivity": 0.8,
+      "mentoringHours": 4,
+      "note": "approaching steady state"
+    }
+  ],
+  "baselineRateEur": 35,
+  "extraFixedCostsEur": 800,
+  "valueDelayEnabled": true,
+  "costOfDelayPerWeekEur": 1500,
+  "valueCriticalSharePercent": 30
+}

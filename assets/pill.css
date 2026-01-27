@@ -1,0 +1,112 @@
+/* Shared header pill + theme switch
+   Centralized to keep markup consistent across landing page and tools.
+*/
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  white-space: nowrap;
+
+  border-radius: 999px;
+  border: 1px solid var(--pill-border);
+  background: var(--pill-bg);
+}
+
+@media (max-width: 980px) {
+  .pill {
+    white-space: normal;
+    flex-wrap: wrap;
+  }
+}
+
+.pill .pill-text {
+  white-space: nowrap;
+}
+
+.pill-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background-color .14s ease, border-color .14s ease, opacity .14s ease;
+}
+
+.pill-link:hover {
+  background: var(--badge-bg);
+  border-color: var(--pill-border);
+  opacity: 1;
+}
+
+.pill-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pill .theme-tag {
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--badge-border);
+  background: var(--badge-bg);
+  color: var(--badge-fg);
+}
+
+/* Switch */
+.switch {
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  position: relative;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(16, 20, 24, .18);
+  border: 1px solid var(--pill-border);
+  transition: .2s;
+  border-radius: 999px;
+}
+
+[data-theme="dark"] .slider {
+  background-color: rgba(255, 255, 255, .10);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 2px;
+  background-color: rgba(255, 255, 255, .92);
+  transition: .2s;
+  border-radius: 999px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .25);
+}
+
+.switch input:checked+.slider {
+  background-color: rgba(232, 117, 50, .30);
+  border-color: rgba(232, 117, 50, .36);
+}
+
+.switch input:checked+.slider:before {
+  transform: translateX(20px);
+}

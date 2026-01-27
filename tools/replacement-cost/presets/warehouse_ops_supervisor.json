@@ -1,0 +1,29 @@
+{
+  "monthsCount": 3,
+  "hoursPerMonth": 160,
+  "externalRateEur": 45,
+  "mentorRateEur": 45,
+  "procurementHours": 8,
+  "months": [
+    {
+      "productivity": 0.6,
+      "mentoringHours": 8,
+      "note": "process + layout onboarding"
+    },
+    {
+      "productivity": 0.75,
+      "mentoringHours": 5,
+      "note": ""
+    },
+    {
+      "productivity": 0.85,
+      "mentoringHours": 3,
+      "note": "stable"
+    }
+  ],
+  "baselineRateEur": 45,
+  "extraFixedCostsEur": 0,
+  "valueDelayEnabled": true,
+  "costOfDelayPerWeekEur": 1800,
+  "valueCriticalSharePercent": 50
+}

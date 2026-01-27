@@ -1,0 +1,7 @@
+{
+  "slug": "hourly-rate",
+  "title": "Hourly Rate Calculator",
+  "description": "Turn annual costs and capacity into a target hourly rate. Includes presets plus import/export and a configurable tax model.",
+  "tags": ["Pricing", "Tax model", "Presets"],
+  "order": 1
+}

@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description"
+        content="Model the real replacement cost of a freelancer or contractor, including ramp-up productivity loss, internal overhead, and baseline comparisons." />
+  <meta name="keywords"
+        content="freelancer calculator, pricing calculator, retainer calculator, replacement cost, consulting, rate, MRR, ARR, GitHub Pages, static tool" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical"
+        href="https://aplgr.github.io/freelancer-toolbox/tools/replacement-cost/" />
+  <meta name="theme-color" content="#f6f6f8" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Freelancer Business Toolbox" />
+  <meta property="og:title" content="Replacement Cost Calculator · Freelancer Business Toolbox" />
+  <meta property="og:description"
+        content="Model the real replacement cost of a freelancer or contractor, including ramp-up productivity loss, internal overhead, and baseline comparisons." />
+  <meta property="og:url"
+        content="https://aplgr.github.io/freelancer-toolbox/tools/replacement-cost/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Replacement Cost Calculator · Freelancer Business Toolbox" />
+  <meta name="twitter:description"
+        content="Model the real replacement cost of a freelancer or contractor, including ramp-up productivity loss, internal overhead, and baseline comparisons." />
+  <script
+          type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Replacement Cost Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Any","description":"Model the real replacement cost of a freelancer or contractor, including ramp-up productivity loss, internal overhead, and baseline comparisons.","url":"https://aplgr.github.io/freelancer-toolbox/tools/replacement-cost/","isAccessibleForFree":true,"license":"https://github.com/aplgr/freelancer-toolbox/blob/main/LICENSE","publisher":{"@type":"Organization","name":"Freelancer Business Toolbox"}}</script>
+  <meta name="color-scheme" content="light dark" />
+  <title>Replacement Cost Calculator · Freelancer Business Toolbox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <link rel="stylesheet" href="../../assets/pill.css" />
+  <link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="stylesheet" type="text/css" href="assets/main.css" />
+</head>
+
+<body>
+  <div class="wrap" x-data="replacementApp()" x-init="init()">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Replacement Cost Calculator</h1>
+          <p>Estimate replacement premium including ramp-up loss and overhead.</p>
+        </div>
+      </div>
+      <div class="pill" aria-label="Tool links and theme switch">
+        <a class="pill-link" href="../../" rel="noopener" title="Back to landing page" aria-label="Landing page">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"
+               aria-hidden="true">
+            <path
+                  d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+          </svg>
+        </a>
+        <a class="pill-link" href="https://github.com/aplgr/freelancer-toolbox" rel="noopener" target="_blank"
+           title="GitHub repository" aria-label="GitHub repository">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"
+               aria-hidden="true">
+            <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+          </svg>
+        </a>
+        <span class="theme-tag" id="themeTag">Light</span>
+        <label class="switch" id="themeSwitchLabel" title="Switch to dark mode">
+          <input type="checkbox" id="themeSwitch" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+    <div class="grid">
+      <section class="card">
+        <div class="head">
+          <h2>Configuration</h2>
+          <div class="badge" x-text="presetLabel ? ('Preset: ' + presetLabel) : 'Preset: (loading...)'"></div>
+        </div>
+        <div class="body">
+          <div class="row">
+            <label>
+              <span class="label-row">Preset <span class="tip"
+                      title="Loads a server-side JSON preset. The first preset is auto-loaded on startup.">i</span></span>
+              <select x-model="selectedPresetFile" @change="loadPreset(selectedPresetFile)"
+                      :disabled="loading || presets.length === 0">
+                <template x-for="p in presets" :key="p.file">
+                  <option :value="p.file" x-text="p.label"></option>
+                </template>
+              </select>
+            </label>
+            <label>
+              <span class="label-row">Months <span class="tip"
+                      title="Ramp-up horizon. Changing this adds/removes monthly ramp-up rows below.">i</span></span>
+              <input type="number" min="1" step="1" x-model="config.monthsCount" @input="syncMonths()"
+                     :disabled="loading" />
+            </label>
+          </div>
+          <div class="sep"></div>
+          <div class="section-title-plain">Share / restore</div>
+          <div class="share-row">
+            <button class="btn" type="button" @click="downloadConfigJson()" :disabled="loading">Export config
+              (JSON)</button>
+            <label class="btn" style="display:inline-flex; align-items:center; gap:10px; cursor:pointer;"
+                   :class="loading ? 'is-disabled' : ''"> Import JSON <input type="file" accept="application/json"
+                     style="display:none"
+                     @change="uploadConfigJson($event)" :disabled="loading" />
+            </label>
+            <button class="btn" type="button" @click="resetToFirstPreset()" :disabled="loading || presets.length === 0">
+              Reset example </button>
+          </div>
+          <div class="hint" x-show="error" x-text="error"
+               style="color: rgba(232,88,88,.95); margin-top: 10px;"></div>
+          <div class="hint" x-show="ok" x-text="ok" style="color: rgba(80,200,120,.95); margin-top: 10px;">
+          </div>
+          <div class="sep"></div>
+          <div class="row">
+            <label>
+              <span class="label-row">Hours per month <span class="tip"
+                      title="Planned billed hours per month (e.g., 160). Used as the capacity baseline.">i</span></span>
+              <input type="number" min="1" step="1" x-model="config.hoursPerMonth" :disabled="loading" />
+            </label>
+            <label>
+              <span class="label-row">New external rate (€/h) <span class="tip"
+                      title="Hourly rate paid to the incoming contractor (new hire).">i</span></span>
+              <input type="number" min="0" step="1" x-model="config.externalRateEur" :disabled="loading" />
+            </label>
+          </div>
+          <div class="row">
+            <label>
+              <span class="label-row">Baseline external rate (€/h) <span class="tip"
+                      title="Hourly rate of the outgoing fully productive contractor (baseline). Used to value lost output.">i</span></span>
+              <input type="number" min="0" step="1" x-model="config.baselineRateEur" :disabled="loading" />
+            </label>
+            <label>
+              <span class="label-row">Internal mentor rate (€/h) <span class="tip"
+                      title="Internal cost rate for mentor time (reviews, pairing, deep support, coordination).">i</span></span>
+              <input type="number" min="0" step="1" x-model="config.mentorRateEur" :disabled="loading" />
+            </label>
+          </div>
+          <div class="row">
+            <label>
+              <span class="label-row">Procurement / onboarding hours <span class="tip"
+                      title="Internal one-time effort: sourcing, interviews, contracting, access setup, accounts, and initial coordination.">i</span></span>
+              <input type="number" min="0" step="1" x-model="config.procurementHours" :disabled="loading" />
+            </label>
+            <label>
+              <span class="label-row">Extra fixed costs (€) <span class="tip"
+                      title="Cash one-offs: courses, tools, accounts, documentation work, travel. Conservative by default.">i</span></span>
+              <input type="number" min="0" step="1" x-model="config.extraFixedCostsEur" :disabled="loading" />
+            </label>
+          </div>
+          <div class="sep"></div>
+          <div class="section-title">
+            <div class="left"> Value delay estimate (optional) <span class="tip"
+                    title="Estimates opportunity cost from delayed value-delivery (revenue / cost reduction). Separate from the direct replacement premium.">i</span>
+            </div>
+            <label class="switch" title="Toggle the value delay estimate on/off (kept in presets and JSON export).">
+              <input type="checkbox" x-model="config.valueDelayEnabled" :disabled="loading" />
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="row" x-show="config.valueDelayEnabled">
+            <label>
+              <span class="label-row">Cost of delay (€/week) <span class="tip"
+                      title="How much one week of delay costs the business (profit loss or missed savings). Use a conservative estimate.">i</span></span>
+              <input type="number" min="0" step="100" x-model="config.costOfDelayPerWeekEur" :disabled="loading" />
+            </label>
+            <label>
+              <span class="label-row">Value-critical share (%) <span class="tip"
+                      title="Not all engineering work is revenue/cost critical. Use this to scale delay impact. Example: 50% means only half of the capacity loss delays value-critical work.">i</span></span>
+              <input type="number" min="0" max="100" step="1" x-model="config.valueCriticalSharePercent"
+                     :disabled="loading" />
+            </label>
+          </div>
+          <div class="hint" x-show="config.valueDelayEnabled" style="margin-top:-2px;"> DelayWeeks ≈ (OutputGapHours ×
+            ValueCriticalShare) ÷ BaselineWeeklyHours, where BaselineWeeklyHours ≈ HoursPerMonth ÷ 4. </div>
+          <div class="sep"></div>
+          <div class="months">
+            <template x-for="(m, idx) in config.months" :key="idx">
+              <div class="month">
+                <div class="month-title">
+                  <strong x-text="'Month ' + (idx + 1)"></strong>
+                  <span class="tiny" x-text="monthSummary(idx)"></span>
+                </div>
+                <div class="row">
+                  <label>
+                    <span class="label-row">Productivity (0..1) <span class="tip"
+                            title="Expected productivity vs baseline for this month. 1.0 = fully productive. 0.6 = 60% output.">i</span></span>
+                    <input type="number" min="0" max="1" step="0.01" x-model="m.productivity" :disabled="loading" />
+                  </label>
+                  <label>
+                    <span class="label-row">Mentoring hours (internal) <span class="tip"
+                            title="Mentor hours spent this month to ramp up the new dev (reviews, pair sessions, deep debugging).">i</span></span>
+                    <input type="number" min="0" step="1" x-model="m.mentoringHours" :disabled="loading" />
+                  </label>
+                </div>
+                <div class="row">
+                  <label>
+                    <span class="label-row">Note (optional) <span class="tip"
+                            title="Free text. Helps document why a month is slower/faster (holidays, refactors, incidents).">i</span></span>
+                    <input type="text" x-model="m.note" placeholder="e.g. ramp-up, firefighting, vacation"
+                           :disabled="loading" />
+                  </label>
+                  <div></div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </section>
+      <section class="card">
+        <div class="head">
+          <h2>Result</h2>
+          <div class="badge mono" x-text="loading ? 'loading…' : 'live'"></div>
+        </div>
+        <div class="body">
+          <div class="result-hero">
+            <div class="label"> Replacement premium (Δ vs baseline) <span class="tip"
+                    title="Direct switching premium: rate delta + valued output loss + internal mentoring + onboarding + extra one-offs.">i</span>
+            </div>
+            <div class="value" x-text="formatEur(replacementPremium())"></div>
+            <div class="sub"> Premium = rate delta + (output gap × baseline rate) + internal mentoring + onboarding +
+              extra fixed costs. Optional: add a conservative value-delay estimate (opportunity cost) below. </div>
+            <div class="impact-lines" x-show="valueDelayEnabled()">
+              <div class="impact-line">
+                <span class="k">Value delay estimate</span>
+                <span class="v" x-text="formatEur(valueDelayCost())"></span>
+              </div>
+              <div class="impact-line">
+                <span class="k">Total impact (premium + delay)</span>
+                <span class="v" x-text="formatEur(totalImpact())"></span>
+              </div>
+            </div>
+          </div>
+          <div class="kpis">
+            <div class="kpi">
+              <div class="t">Total cost (new) <span class="tip"
+                      title="Total cost during ramp-up: new vendor spend + internal mentoring + onboarding + extra one-offs.">i</span>
+              </div>
+              <div class="v mono" x-text="formatEur(totalCost())"></div>
+              <div class="s">External spend + internal cost + extra fixed costs</div>
+            </div>
+            <div class="kpi">
+              <div class="t">Equivalent cost (100% output) <span class="tip"
+                      title="What the same period would have cost if output were 100%. Scales TotalCostNew by billed/effective.">i</span>
+              </div>
+              <div class="v mono" x-text="effectiveHours() > 0 ? formatEur(equivalentCostForFullOutput()) : '–'"></div>
+              <div class="s">Total × billed/effective</div>
+            </div>
+            <div class="kpi">
+              <div class="t">Baseline cost <span class="tip"
+                      title="Cost of keeping the baseline contractor for the same billed hours (baselineRate × billedHours).">i</span>
+              </div>
+              <div class="v mono" x-text="formatEur(baselineCost())"></div>
+              <div class="s">Baseline rate × billed hours</div>
+            </div>
+            <div class="kpi">
+              <div class="t">Cost per effective hour</div>
+              <div class="v mono" x-text="effectiveHours() > 0 ? formatEur(effectiveCostPerEffHour()) : '–'"></div>
+              <div class="s">Total / effective hours</div>
+            </div>
+          </div>
+          <div class="sep"></div>
+          <div class="kpis">
+            <div class="kpi">
+              <div class="t">Billed hours</div>
+              <div class="v mono" x-text="fmtInt(billedHours())"></div>
+              <div class="s">Hours per month × months</div>
+            </div>
+            <div class="kpi">
+              <div class="t">Effective hours</div>
+              <div class="v mono" x-text="fmtInt(effectiveHours())"></div>
+              <div class="s">Hours per month × Σ(productivity)</div>
+            </div>
+            <div class="kpi">
+              <div class="t">Output gap (hours)</div>
+              <div class="v mono" x-text="fmtInt(outputGap())"></div>
+              <div class="s">Billed − effective</div>
+            </div>
+            <div class="kpi">
+              <div class="t">Output loss (valued at baseline)</div>
+              <div class="v mono" x-text="formatEur(outputValueLoss())"></div>
+              <div class="s">Output gap × baseline rate</div>
+            </div>
+          </div>
+          <div class="kpis" x-show="valueDelayEnabled()">
+            <div class="kpi">
+              <div class="t">Estimated delay (weeks) <span class="tip"
+                      title="Rough estimate: how many weeks value-critical work is pushed out by the capacity gap. Calculated from output gap, scaled by value-critical share.">i</span>
+              </div>
+              <div class="v mono" x-text="fmtDec(estimatedDelayWeeks())"></div>
+              <div class="s">≈ (gap × share) ÷ (hoursPerMonth/4)</div>
+            </div>
+            <div class="kpi">
+              <div class="t">Value delay cost <span class="tip"
+                      title="Opportunity cost from delaying value-critical work. CostOfDelayPerWeek × estimated delay weeks.">i</span>
+              </div>
+              <div class="v mono" x-text="formatEur(valueDelayCost())"></div>
+              <div class="s">CoD/week × delay weeks</div>
+            </div>
+            <div class="kpi">
+              <div class="t">Total impact <span class="tip"
+                      title="Replacement premium plus value delay estimate. Useful for management discussions, but treat delay as a conservative estimate.">i</span>
+              </div>
+              <div class="v mono" x-text="formatEur(totalImpact())"></div>
+              <div class="s">Premium + delay</div>
+            </div>
+            <div class="kpi">
+              <div class="t">Delay share used <span class="tip"
+                      title="The share of capacity loss assumed to be value-critical (0..100%).">i</span></div>
+              <div class="v mono" x-text="fmtPct(valueCriticalShare())"></div>
+              <div class="s">From configuration</div>
+            </div>
+          </div>
+          <div class="sep"></div>
+          <div class="kpis">
+            <div class="kpi">
+              <div class="t">Rate delta</div>
+              <div class="v mono" x-text="formatEur(rateDeltaCost())"></div>
+              <div class="s">(New rate − baseline) × billed hours</div>
+            </div>
+            <div class="kpi">
+              <div class="t">External spend (new)</div>
+              <div class="v mono" x-text="formatEur(externalSpend())"></div>
+              <div class="s">New rate × billed hours</div>
+            </div>
+            <div class="kpi">
+              <div class="t">Mentoring cost</div>
+              <div class="v mono" x-text="formatEur(mentoringCost())"></div>
+              <div class="s">Mentor rate × Σ(mentoring hours)</div>
+            </div>
+            <div class="kpi">
+              <div class="t">Onboarding + fixed costs</div>
+              <div class="v mono" x-text="formatEur(procurementCost() + extraFixedCosts())"></div>
+              <div class="s">Internal onboarding + external one-offs</div>
+            </div>
+          </div>
+          <div class="sep"></div>
+          <div class="mono" style="opacity:.88; font-size:12.5px; line-height:1.65;">
+            <div><strong>Model</strong></div>
+            <div>BilledHours = hoursPerMonth × months</div>
+            <div>EffectiveHours = hoursPerMonth × Σ(productivity)</div>
+            <div>OutputGap = billed − effective</div>
+            <div>TotalCostNew = (newRate × billedHours) + mentoringCost + onboardingCost + extraFixedCosts</div>
+            <div>Equivalent100% = TotalCostNew × (billedHours / effectiveHours)</div>
+            <div>ReplacementPremium = (newRate − baselineRate) × billedHours + (outputGap × baselineRate) +
+              mentoringCost + onboardingCost + extraFixedCosts</div>
+            <div>BaselineWeeklyHours ≈ hoursPerMonth ÷ 4</div>
+            <div>DelayWeeks ≈ (outputGap × (valueCriticalShare/100)) ÷ BaselineWeeklyHours</div>
+            <div>ValueDelayCost = DelayWeeks × costOfDelayPerWeek</div>
+            <div>TotalImpact = ReplacementPremium + ValueDelayCost</div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer class="footer">
+      <span>© <span id="year"></span> · Built as a static showcase</span>
+      <span class="dot">·</span>
+      <a class="footlink" href="https://github.com/aplgr/freelancer-toolbox" rel="noopener"
+         target="_blank">GitHub repository</a>
+    </footer>
+  </div>
+  <script src="assets/main.js"></script>
+  <script src="../../assets/pill.js"></script>
+</body>
+
+</html>

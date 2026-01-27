@@ -1,0 +1,10 @@
+[
+  {
+    "label": "A) Spreadsheet example (baseline)",
+    "file": "presets/a_spreadsheet_example.json"
+  },
+  {
+    "label": "B) Minimal / blank template",
+    "file": "presets/b_minimal_blank.json"
+  }
+]

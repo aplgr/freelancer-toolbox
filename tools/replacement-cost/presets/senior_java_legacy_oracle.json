@@ -1,0 +1,39 @@
+{
+  "monthsCount": 5,
+  "hoursPerMonth": 160,
+  "externalRateEur": 85,
+  "mentorRateEur": 85,
+  "procurementHours": 12,
+  "months": [
+    {
+      "productivity": 0.55,
+      "mentoringHours": 12,
+      "note": "domain + monolith orientation"
+    },
+    {
+      "productivity": 0.7,
+      "mentoringHours": 9,
+      "note": ""
+    },
+    {
+      "productivity": 0.8,
+      "mentoringHours": 6,
+      "note": "first production changes"
+    },
+    {
+      "productivity": 0.88,
+      "mentoringHours": 4,
+      "note": ""
+    },
+    {
+      "productivity": 0.92,
+      "mentoringHours": 3,
+      "note": "stable"
+    }
+  ],
+  "baselineRateEur": 85,
+  "extraFixedCostsEur": 0,
+  "valueDelayEnabled": true,
+  "costOfDelayPerWeekEur": 3000,
+  "valueCriticalSharePercent": 50
+}

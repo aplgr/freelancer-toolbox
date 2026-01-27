@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description"
+        content="Calculate a sustainable hourly rate from personal + business costs, capacity, taxes, and unproductive time. Static, private, and exportable." />
+  <meta name="keywords"
+        content="freelancer calculator, pricing calculator, retainer calculator, replacement cost, consulting, rate, MRR, ARR, GitHub Pages, static tool" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://aplgr.github.io/freelancer-toolbox/tools/hourly-rate/" />
+  <meta name="theme-color" content="#f6f6f8" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Freelancer Business Toolbox" />
+  <meta property="og:title" content="Hourly Rate Calculator · Freelancer Business Toolbox" />
+  <meta property="og:description"
+        content="Calculate a sustainable hourly rate from personal + business costs, capacity, taxes, and unproductive time. Static, private, and exportable." />
+  <meta property="og:url"
+        content="https://aplgr.github.io/freelancer-toolbox/tools/hourly-rate/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Hourly Rate Calculator · Freelancer Business Toolbox" />
+  <meta name="twitter:description"
+        content="Calculate a sustainable hourly rate from personal + business costs, capacity, taxes, and unproductive time. Static, private, and exportable." />
+  <!-- Match typography of the other toolbox tools (Retainer Tier / Replacement Cost) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+  <script
+          type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Hourly Rate Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Any","description":"Calculate a sustainable hourly rate from personal + business costs, capacity, taxes, and unproductive time. Static, private, and exportable.","url":"https://aplgr.github.io/freelancer-toolbox/tools/hourly-rate/","isAccessibleForFree":true,"license":"https://github.com/aplgr/freelancer-toolbox/blob/main/LICENSE","publisher":{"@type":"Organization","name":"Freelancer Business Toolbox"}}</script>
+  <meta name="color-scheme" content="light dark" />
+  <title>Hourly Rate Calculator · Freelancer Business Toolbox</title>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="../../assets/main.css" />
+  <link rel="stylesheet" href="../../assets/pill.css" />
+  <link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="stylesheet" type="text/css" href="assets/main.css" />
+</head>
+
+<body>
+  <div class="wrap" x-data="rateApp()" x-init="init()">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Hourly Rate Calculator</h1>
+          <p>Pricing from costs, capacity, and taxes. Config left, results right.</p>
+        </div>
+      </div>
+      <div class="pill" aria-label="Tool links and theme switch">
+        <a class="pill-link" href="../../" rel="noopener" title="Back to landing page" aria-label="Landing page">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"
+               aria-hidden="true">
+            <path
+                  d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+          </svg>
+        </a>
+        <a class="pill-link" href="https://github.com/aplgr/freelancer-toolbox" rel="noopener" target="_blank"
+           title="GitHub repository" aria-label="GitHub repository">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"
+               aria-hidden="true">
+            <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+          </svg>
+        </a>
+        <span class="theme-tag" id="themeTag">Light</span>
+        <label class="switch" id="themeSwitchLabel" title="Switch to dark mode">
+          <input type="checkbox" id="themeSwitch" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+    <div class="grid">
+      <!-- LEFT: Configuration -->
+      <section class="card">
+        <div class="head">
+          <div>
+            <h2>Configuration</h2>
+            <div class="sub">Presets + JSON import/export. Add/remove rows for expenses and unproductive days.</div>
+          </div>
+        </div>
+        <div class="row">
+          <label>
+            <span class="label-row">Preset <span class="tip"
+                    title="Loads a server-side JSON preset. The first preset is auto-loaded on startup.">i</span></span>
+            <select x-model="presetFile" @change="loadPreset(presetFile)" :disabled="loading">
+              <template x-for="p in presets" :key="p.file">
+                <option :value="p.file" x-text="p.label"></option>
+              </template>
+            </select>
+          </label>
+          <label>
+            <span class="label-row">Config name <span class="tip"
+                    title="Just a label stored in the JSON export.">i</span></span>
+            <input type="text" x-model="config.name" :disabled="loading"
+                   placeholder="e.g., Germany freelancer baseline" />
+          </label>
+        </div>
+        <div class="sep"></div>
+        <div class="section-title-plain">Share / restore</div>
+        <div class="share-row">
+          <button class="share-btn" type="button" @click="downloadConfig()" :disabled="loading">Export config
+            (JSON)</button>
+          <label class="share-btn" style="display:inline-flex; align-items:center; gap:10px; cursor:pointer;"
+                 :class="loading ? 'is-disabled' : ''"> Import JSON <input type="file" accept="application/json"
+                   @change="uploadConfig($event)" style="display:none;"
+                   :disabled="loading" />
+          </label>
+          <button class="share-btn" type="button" @click="resetToPreset()" :disabled="loading">Reload preset</button>
+        </div>
+        <div class="sep"></div>
+        <div class="head" style="margin-bottom: 6px;">
+          <div>
+            <h2>Tax model</h2>
+            <div class="sub">No hardcoded tax constants: choose a model, and adjust the parameters if needed.</div>
+          </div>
+        </div>
+        <label>
+          <span class="label-row">Tax model <span class="tip"
+                  title="Select the tax function used to convert gross taxable income into income tax and solidarity surcharge.">i</span></span>
+          <select x-model="config.tax.modelId" @change="onTaxModelChange()" :disabled="loading">
+            <template x-for="m in taxModels" :key="m.id">
+              <option :value="m.id" x-text="m.label"></option>
+            </template>
+          </select>
+        </label>
+        <details>
+          <summary> Advanced: edit tax parameters <span class="tip"
+                  title="These values are stored inside the exported JSON config. That means: your tool has no hardcoded laws. You can update parameters when tax law changes.">i</span>
+          </summary>
+          <div class="tax-params">
+            <template x-for="p in taxParamFields" :key="p.key">
+              <label>
+                <span class="label-row" x-text="p.label">
+                  <!-- label rendered by x-text -->
+                </span>
+                <input type="number" step="any" x-model.number="config.tax.params[p.key]"
+                       :placeholder="String(effectiveTaxParams[p.key] ?? '')" />
+              </label>
+            </template>
+          </div>
+          <div class="hint" style="margin-top: 8px;"> Leave a parameter empty to fall back to the model defaults. </div>
+        </details>
+        <div class="divider"></div>
+        <div class="head" style="margin-bottom: 6px;">
+          <div>
+            <h2>Work capacity</h2>
+            <div class="sub">Derived from workdays − holidays − unproductive days.</div>
+          </div>
+        </div>
+        <div class="row3">
+          <label>
+            <span class="label-row">Work days per year <span class="tip"
+                    title="Spreadsheet example uses 250. Adjust to your country/year.">i</span></span>
+            <input type="number" min="0" step="1" x-model.number="config.work.workDaysPerYear" :disabled="loading" />
+          </label>
+          <label>
+            <span class="label-row">Holidays (days) <span class="tip"
+                    title="Days subtracted from workdays to get possible workdays.">i</span></span>
+            <input type="number" min="0" step="1" x-model.number="config.work.holidays" :disabled="loading" />
+          </label>
+          <label>
+            <span class="label-row">Hours per productive day <span class="tip"
+                    title="Used to convert productive days into billable hours per year.">i</span></span>
+            <input type="number" min="0" step="0.5" x-model.number="config.work.hoursPerDay" :disabled="loading" />
+          </label>
+        </div>
+        <div class="divider"></div>
+        <div class="head" style="margin-bottom: 6px;">
+          <div>
+            <h2>Unproductive days</h2>
+            <div class="sub">Marketing, admin, illness, vacation, pipeline gaps… (days/year)</div>
+          </div>
+        </div>
+        <div class="table">
+          <div class="t-head">
+            <div>Category</div>
+            <div>Label</div>
+            <div>Days/year</div>
+            <div></div>
+          </div>
+          <template x-for="(row, idx) in config.unproductiveDays" :key="'u'+idx">
+            <div class="t-row">
+              <select x-model="row.category" :disabled="loading">
+                <template x-for="c in (categories.unproductive || [])" :key="c">
+                  <option :value="c" x-text="c"></option>
+                </template>
+              </select>
+              <input type="text" x-model="row.label" :disabled="loading" placeholder="e.g., Vacation" />
+              <input type="number" min="0" step="1" x-model.number="row.days" :disabled="loading" />
+              <button class="mini-btn" title="Remove row" @click="removeRow('unproductiveDays', idx)"
+                      :disabled="loading">✕</button>
+            </div>
+          </template>
+          <div class="totals">
+            <div>Total unproductive days</div>
+            <div><strong x-text="fmtNum(calc.unproductiveDaysTotal)"></strong></div>
+          </div>
+        </div>
+        <div class="btns">
+          <button class="btn secondary" @click="addUnproductiveRow()" :disabled="loading">＋ Add unproductive
+            row</button>
+        </div>
+        <div class="divider"></div>
+        <div class="head" style="margin-bottom: 6px;">
+          <div>
+            <h2>Private expenses</h2>
+            <div class="sub">Monthly amounts. Annual is derived as monthly × 12.</div>
+          </div>
+        </div>
+        <div class="table">
+          <div class="t-head">
+            <div>Category</div>
+            <div>Label</div>
+            <div>€/month</div>
+            <div></div>
+          </div>
+          <template x-for="(row, idx) in config.privateExpenses" :key="'p'+idx">
+            <div class="t-row">
+              <select x-model="row.category" :disabled="loading">
+                <template x-for="c in (categories.private || [])" :key="c">
+                  <option :value="c" x-text="c"></option>
+                </template>
+              </select>
+              <input type="text" x-model="row.label" :disabled="loading" placeholder="e.g., Rent" />
+              <input type="number" min="0" step="1" x-model.number="row.monthly" :disabled="loading" />
+              <button class="mini-btn" title="Remove row" @click="removeRow('privateExpenses', idx)"
+                      :disabled="loading">✕</button>
+            </div>
+          </template>
+          <div class="totals">
+            <div>Private total (annual)</div>
+            <div><strong x-text="fmtEUR(calc.privateAnnual)"></strong></div>
+          </div>
+        </div>
+        <div class="btns">
+          <button class="btn secondary" @click="addExpenseRow('privateExpenses')" :disabled="loading">＋ Add private
+            expense</button>
+        </div>
+        <div class="divider"></div>
+        <div class="head" style="margin-bottom: 6px;">
+          <div>
+            <h2>Business expenses</h2>
+            <div class="sub">Monthly amounts. Annual is derived as monthly × 12.</div>
+          </div>
+        </div>
+        <div class="table">
+          <div class="t-head">
+            <div>Category</div>
+            <div>Label</div>
+            <div>€/month</div>
+            <div></div>
+          </div>
+          <template x-for="(row, idx) in config.businessExpenses" :key="'b'+idx">
+            <div class="t-row">
+              <select x-model="row.category" :disabled="loading">
+                <template x-for="c in (categories.business || [])" :key="c">
+                  <option :value="c" x-text="c"></option>
+                </template>
+              </select>
+              <input type="text" x-model="row.label" :disabled="loading" placeholder="e.g., Tools / subscriptions" />
+              <input type="number" min="0" step="1" x-model.number="row.monthly" :disabled="loading" />
+              <button class="mini-btn" title="Remove row" @click="removeRow('businessExpenses', idx)"
+                      :disabled="loading">✕</button>
+            </div>
+          </template>
+          <div class="totals">
+            <div>Business total (annual)</div>
+            <div><strong x-text="fmtEUR(calc.businessAnnual)"></strong></div>
+          </div>
+        </div>
+        <div class="btns">
+          <button class="btn secondary" @click="addExpenseRow('businessExpenses')" :disabled="loading">＋ Add business
+            expense</button>
+        </div>
+        <template x-if="error">
+          <div class="error" x-text="error"></div>
+        </template>
+      </section>
+      <!-- RIGHT: Results -->
+      <section class="card">
+        <div class="head">
+          <div>
+            <h2>Results</h2>
+            <div class="sub">Required rates derived from your costs, capacity, and the selected tax model.</div>
+          </div>
+          <span class="badge" x-text="calc.productiveDays > 0 ? 'OK' : 'Check inputs'"></span>
+        </div>
+        <div class="result-hero">
+          <div class="hero-grid">
+            <div class="hero-metric">
+              <div class="hero-k"><span class="hero-label">Required hourly rate</span><span class="tip"
+                      title="Hourly rate (EUR/h) that covers business costs + private costs + taxes, given your productive capacity.">i</span>
+              </div>
+              <div class="hero-v big" x-text="fmtEUR(calc.hourRate)"></div>
+            </div>
+            <div class="hero-metric">
+              <div class="hero-k"><span class="hero-label">Day rate</span><span class="tip"
+                      title="Derived as annual revenue needed divided by productive days.">i</span></div>
+              <div class="hero-v" x-text="fmtEUR(calc.dayRate)"></div>
+            </div>
+            <div class="hero-metric">
+              <div class="hero-k"><span class="hero-label">Annual revenue needed</span><span class="tip"
+                      title="Revenue required to pay business costs, cover private costs, and pay taxes.">i</span></div>
+              <div class="hero-v" x-text="fmtEUR(calc.requiredAnnualRevenue)"></div>
+            </div>
+          </div>
+          <div class="hint" style="margin-top: 10px;"> Tax handling is solved properly: we compute the gross taxable
+            income so that (gross − tax(gross)) matches your private annual costs. </div>
+        </div>
+        <div class="impact-lines">
+          <div class="impact-line">
+            <div class="k">Private costs (annual)</div>
+            <div class="v" x-text="fmtEUR(calc.privateAnnual)"></div>
+          </div>
+          <div class="impact-line">
+            <div class="k">Business costs (annual)</div>
+            <div class="v" x-text="fmtEUR(calc.businessAnnual)"></div>
+          </div>
+          <div class="impact-line">
+            <div class="k">Gross taxable income (solved)</div>
+            <div class="v" x-text="fmtEUR(calc.grossTaxableSolved)"></div>
+          </div>
+          <div class="impact-line">
+            <div class="k">Income tax</div>
+            <div class="v" x-text="fmtEUR(calc.taxesIncomeTax)"></div>
+          </div>
+          <div class="impact-line">
+            <div class="k">Solidarity surcharge</div>
+            <div class="v" x-text="fmtEUR(calc.taxesSoli)"></div>
+          </div>
+          <div class="impact-line">
+            <div class="k">Taxes (total)</div>
+            <div class="v" x-text="fmtEUR(calc.taxesTotal)"></div>
+          </div>
+          <div class="impact-line">
+            <div class="k">Productive days / year</div>
+            <div class="v" x-text="fmtNum(calc.productiveDays)"></div>
+          </div>
+          <div class="impact-line">
+            <div class="k">Billable hours / year</div>
+            <div class="v" x-text="fmtNum(calc.billableHoursYear)"></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="hint"> If you want: add more tax models (e.g. different years, top bracket, church tax) by extending
+          <code>data/tax_models.json</code>. Your JSON exports will stay valid because tax parameters are embedded in
+          the config. </div>
+      </section>
+    </div>
+    <footer class="footer">
+      <span>© <span id="year"></span> · Built as a static showcase</span>
+      <span class="dot">·</span>
+      <a class="footlink" href="https://github.com/aplgr/freelancer-toolbox" rel="noopener"
+         target="_blank">GitHub repository</a>
+    </footer>
+  </div>
+  <script src="assets/main.js"></script>
+  <script src="../../assets/pill.js"></script>
+</body>
+
+</html>

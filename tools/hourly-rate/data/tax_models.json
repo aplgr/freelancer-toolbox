@@ -1,0 +1,48 @@
+[
+  {
+    "id": "de_income_tax_2025",
+    "label": "Germany 2025 (income tax simplified)",
+    "currency": "EUR",
+    "notes": "Simplified Grundtarif model in the same 3-zone form as the original 2019 preset (top 45% bracket not modeled).",
+    "params": {
+      "basicAllowance": 12096,
+      "zone1Upper": 17443,
+      "zone2Upper": 68480,
+      "zDivisor": 10000,
+      "zone1_a": 932.3,
+      "zone1_b": 1400,
+      "zone1_roundDecimals": 0,
+      "zone2_a": 176.64,
+      "zone2_b": 2397,
+      "zone2_c": 1015.13,
+      "zone3_rate": 0.42,
+      "zone3_intercept": -10911.92,
+      "soli_rate": 0.055,
+      "soli_threshold_incomeTax": 972,
+      "soli_threshold_mode": "zone1_only"
+    }
+  },
+  {
+    "id": "de_income_tax_2026",
+    "label": "Germany 2026 (income tax simplified)",
+    "currency": "EUR",
+    "notes": "Simplified Grundtarif model in the same 3-zone form as the original 2019 preset (top 45% bracket not modeled).",
+    "params": {
+      "basicAllowance": 12348,
+      "zone1Upper": 17799,
+      "zone2Upper": 69878,
+      "zDivisor": 10000,
+      "zone1_a": 914.51,
+      "zone1_b": 1400,
+      "zone1_roundDecimals": 0,
+      "zone2_a": 173.1,
+      "zone2_b": 2397,
+      "zone2_c": 1034.87,
+      "zone3_rate": 0.42,
+      "zone3_intercept": -11135.63,
+      "soli_rate": 0.055,
+      "soli_threshold_incomeTax": 972,
+      "soli_threshold_mode": "zone1_only"
+    }
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "private": [
+    "Housing",
+    "Car",
+    "Living",
+    "Insurance",
+    "Retirement",
+    "Communication",
+    "Misc"
+  ],
+  "business": [
+    "Office",
+    "Car",
+    "Marketing",
+    "Operations",
+    "Tools & subscriptions",
+    "Professional services",
+    "Training",
+    "Misc"
+  ],
+  "unproductive": [
+    "Marketing",
+    "Administration",
+    "Sick leave",
+    "Vacation",
+    "Pipeline gaps",
+    "Other"
+  ]
+}
