@@ -1,6 +1,12 @@
 # Freelancer Toolbox
 
+[![Demo: GitHub Pages](https://img.shields.io/badge/demo-GitHub%20Pages-2ea44f)](https://aplgr.github.io/freelancer-toolbox/)
+[![Scope: Freelancer Tools](https://img.shields.io/badge/scope-freelancer%20tools-6f42c1)](https://github.com/aplgr/freelancer-toolbox)
+[![License: MIT](https://img.shields.io/github/license/aplgr/freelancer-toolbox?label=license)](./LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/aplgr/freelancer-toolbox/pulls)
+
 A small, static GitHub Pages site that bundles a few practical calculators I use in real-world freelancing / B2B conversations.
+
 
 ## Included tools
 
