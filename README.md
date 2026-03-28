@@ -1,7 +1,7 @@
 # Business Toolbox
 
 [![Demo: GitHub Pages](https://img.shields.io/badge/demo-GitHub%20Pages-2ea44f)](https://tools.andreploeger.com/)
-[![Scope: Business Tools](https://img.shields.io/badge/scope-freelancer%20tools-6f42c1)](https://github.com/aplgr/freelancer-toolbox)
+[![Scope: Business Tools](https://img.shields.io/badge/scope-business%20tools-6f42c1)](https://github.com/aplgr/freelancer-toolbox)
 [![License: MIT](https://img.shields.io/github/license/aplgr/freelancer-toolbox?label=license)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/aplgr/freelancer-toolbox/pulls)
 
