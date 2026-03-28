@@ -33,7 +33,8 @@ window.toolbox = function toolbox() {
       const payload = {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        name: "Freelancer Business Toolbox",
+        name: "Business Toolbox",
+        url: "https://tools.andreploeger.com/",
         itemListElement
       };
 
