@@ -212,6 +212,7 @@ function rateApp() {
         },
 
         async uploadConfig(ev) {
+            this.error = "";
             const file = ev.target.files && ev.target.files[0];
             ev.target.value = "";
             if (!file) return;
@@ -219,7 +220,6 @@ function rateApp() {
                 const txt = await file.text();
                 const cfg = JSON.parse(txt);
                 this.applyConfig(cfg);
-                this._lastPreset = null;
             } catch (err) {
                 this.error = "Invalid JSON: " + String(err && err.message ? err.message : err);
             }

@@ -209,6 +209,7 @@ function RetainerTierApp() {
             this.ok = "";
             this.error = "";
             const file = ev.target.files && ev.target.files[0];
+            ev.target.value = "";
             if (!file) return;
 
             const reader = new FileReader();

@@ -93,6 +93,9 @@ function replacementApp() {
             this.config.mentorRateEur = this.toStr(safe.mentorRateEur);
             this.config.procurementHours = this.toStr(safe.procurementHours);
             this.config.extraFixedCostsEur = this.toStr(safe.extraFixedCostsEur);
+            this.config.valueDelayEnabled = !!safe.valueDelayEnabled;
+            this.config.costOfDelayPerWeekEur = this.toStr(safe.costOfDelayPerWeekEur);
+            this.config.valueCriticalSharePercent = this.toStr(safe.valueCriticalSharePercent);
 
             const incomingMonths = Array.isArray(safe.months) ? safe.months : [];
             this.config.months = incomingMonths.map(m => ({
