@@ -91,6 +91,72 @@ a {
   line-height: 1.45;
 }
 
+.site-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.site-cta-centered {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.site-cta-centered h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.site-cta-centered p {
+  max-width: 42ch;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.site-cta p {
+  margin: 0;
+}
+
+.site-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border: 1px solid rgba(51, 103, 145, .28);
+  border-radius: 12px;
+  background: rgba(51, 103, 145, .10);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .1px;
+  white-space: nowrap;
+  transition: background .14s ease, border-color .14s ease, transform .14s ease;
+}
+
+.site-cta-button:hover {
+  background: rgba(51, 103, 145, .16);
+  border-color: rgba(51, 103, 145, .38);
+  transform: translateY(-1px);
+}
+
+.site-cta-button-block {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(51, 103, 145, .14);
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: var(--shadow-soft);
+}
+
+.results-stack {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
 .footer {
   margin-top: 18px;
   font-size: 13px;
@@ -135,6 +201,15 @@ a {
 
   .card {
     min-height: auto
+  }
+
+  .site-cta:not(.site-cta-centered) {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .site-cta:not(.site-cta-centered) .site-cta-button {
+    width: 100%;
   }
 }
 /* Alpine.js helper */
