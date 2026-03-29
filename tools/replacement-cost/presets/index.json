@@ -1,27 +1,27 @@
 [
   {
-    "label": "Senior Perl (no platform background)",
-    "file": "presets/a_senior_perl_no_platform.json"
+    "label": "Senior Python Backend Dev (no platform background)",
+    "file": "presets/a_senior_python_backend_no_platform.json"
   },
   {
-    "label": "Senior Perl + Legacy Ops (example)",
-    "file": "presets/b_senior_perl_legacy_ops.json"
+    "label": "Senior PHP Dev + Legacy Ops (example)",
+    "file": "presets/b_senior_php_legacy_ops.json"
   },
   {
     "label": "Niche platform veteran (unicorn)",
     "file": "presets/c_niche_platform_unicorn.json"
   },
   {
-    "label": "Junior Perl Dev (learning, no legacy background)",
-    "file": "presets/junior_perl_learning_no_legacy.json"
+    "label": "Junior Go Dev (learning, no legacy background)",
+    "file": "presets/junior_go_learning_no_legacy.json"
   },
   {
-    "label": "Mid-level Perl Dev (no legacy background)",
-    "file": "presets/mid_perl_no_legacy.json"
+    "label": "Mid-level TypeScript Dev (no legacy background)",
+    "file": "presets/mid_typescript_no_legacy.json"
   },
   {
-    "label": "Junior Dev (no Perl yet, willing to learn)",
-    "file": "presets/junior_dev_no_perl_willing_to_learn.json"
+    "label": "Junior Dev (new to Python, willing to learn)",
+    "file": "presets/junior_dev_new_to_python_willing_to_learn.json"
   },
   {
     "label": "Senior Java Dev (legacy Oracle monolith)",
