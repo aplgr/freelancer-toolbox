@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "vendor:sync": "node scripts/sync-vendor-assets.mjs"
+  },
+  "dependencies": {
+    "alpinejs": "3.14.9"
+  }
+}

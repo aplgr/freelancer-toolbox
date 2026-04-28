@@ -26,9 +26,14 @@ A small, static site that bundles a few practical calculators I use in real-worl
 No build step. Any static server works.
 
 ```bash
+npm install
+npm run vendor:sync
+make check-tools-json
 python3 -m http.server 8080
 # open http://localhost:8080
 ```
+
+After Dependabot updates, run `npm install`, `npm run vendor:sync`, and `make check-tools-json`, then briefly test the static site locally.
 
 ## Notes / disclaimer
 

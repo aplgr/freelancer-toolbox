@@ -58,6 +58,16 @@ def _load_json(path: Path) -> dict[str, Any]:
         raise SystemExit(f"Invalid JSON in {path}: {e}")
 
 
+def _load_existing_payload(path: Path) -> dict[str, Any] | None:
+    if not path.is_file():
+        return None
+
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return None
+
+
 def _validate_tool_meta(meta: dict[str, Any], meta_path: Path, default_slug: str) -> Tool:
     slug = str(meta.get("slug") or default_slug)
     title = meta.get("title")
@@ -87,7 +97,7 @@ def _validate_tool_meta(meta: dict[str, Any], meta_path: Path, default_slug: str
     )
 
 
-def generate(tools_dir: Path, out_path: Path) -> int:
+def generate(tools_dir: Path, out_path: Path) -> tuple[int, bool]:
     if not tools_dir.exists() or not tools_dir.is_dir():
         raise SystemExit(f"Tools directory not found: {tools_dir}")
 
@@ -103,16 +113,22 @@ def generate(tools_dir: Path, out_path: Path) -> int:
 
     tools.sort(key=lambda t: ((t.order if t.order is not None else 10_000), t.title.lower()))
 
+    tool_payload = [t.to_dict() for t in tools]
+    existing_payload = _load_existing_payload(out_path)
+
+    if existing_payload and existing_payload.get("tools") == tool_payload:
+        return len(tools), False
+
     payload = {
         "generatedAt": _utc_iso_z(),
-        "tools": [t.to_dict() for t in tools],
+        "tools": tool_payload,
     }
 
     tmp_path = out_path.with_suffix(out_path.suffix + ".tmp")
     tmp_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     os.replace(tmp_path, out_path)
 
-    return len(tools)
+    return len(tools), True
 
 
 def main(argv: list[str]) -> int:
@@ -121,8 +137,11 @@ def main(argv: list[str]) -> int:
     tools_dir = root / "tools"
     out_path = root / "tools.json"
 
-    count = generate(tools_dir, out_path)
-    print(f"Wrote {out_path} ({count} tools)")
+    count, changed = generate(tools_dir, out_path)
+    if changed:
+        print(f"Wrote {out_path} ({count} tools)")
+    else:
+        print(f"{out_path} is up to date ({count} tools)")
     return 0
 
 
