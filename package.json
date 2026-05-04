@@ -5,6 +5,6 @@
     "vendor:sync": "node scripts/sync-vendor-assets.mjs"
   },
   "dependencies": {
-    "alpinejs": "3.14.9"
+    "alpinejs": "3.15.11"
   }
 }
